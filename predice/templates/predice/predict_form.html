@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Accidentes</title>
+</head>
+<body>
+    <h1>Predicción de Accidentes</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Predecir</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Resultado de la Predicción</h2>
+        <p>{{ prediction }}</p>
+    {% endif %}
+
+    {% if error_message %}
+        <h2>Error</h2>
+        <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
